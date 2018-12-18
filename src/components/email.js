@@ -10,15 +10,11 @@ export default function Email() {
         <div className="email">
           <Router>
             <div>
-              <Redirect from="/" to="inbox" />
-
-            <Sidebar exact to="/inbox" />
-            <Sidebar exact to="/spam" />
+            <Sidebar exact to="/:folderId" />
             <main>
                 <EmailList folderId="inbox" />
                 {/* <SingleEmail folderId="inbox" emailId="1" /> */}
             </main>
-            
             </div>
             </Router>
         </div>
