@@ -1,11 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import './sidebar.css';
-import { BrowserRouter as Router, Route} from 'react-router-dom'; 
+
 import { Link } from 'react-router-dom'; 
 export function Sidebar(props) {
     const folders = props.folderList.map(folder =>
-        <Link to={folder.id}>
+        <Link to={`/${folder.id}`}>
         <li key={folder.id} className="folder-menu-list-item">
             {folder.name}
         </li>

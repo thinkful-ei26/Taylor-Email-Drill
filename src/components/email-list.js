@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import './email-list.css';
+import { Link } from 'react-router-dom';
 
 export function EmailList(props) {
     const emails = props.emailList.map(email =>
@@ -9,7 +10,9 @@ export function EmailList(props) {
                 {email.from}
             </div>
             <div className="email-list-email-title">
+            <Link to={`/${props.match.params.folderId}/${email.id}`}>
                 {email.title}
+            </Link>
             </div>
         </li>
     );
@@ -25,10 +28,7 @@ export function EmailList(props) {
 }
 
 const mapStateToProps = (state, props) => {
-    const folder = state[props.folderId];
-    console.log('State', state); 
-    console.log('Props', props); 
-    console.log('FOLDER', folder); 
+    const folder = state[props.match.params.folderId];
     return {
         folderName: folder.name,
         emailList: Object.keys(folder.emails).map(emailId =>
