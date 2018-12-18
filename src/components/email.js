@@ -11,9 +11,9 @@ export default function Email() {
           <Router>
             <div>
               <Redirect from="/" to="inbox" />
-              <Route exact path = "/:folderId" component= {EmailList} /> 
-              <Route exact path = "/:folderId/:emailId" component= { SingleEmail } /> 
-            <Sidebar />
+
+            <Sidebar exact to="/inbox" />
+            <Sidebar exact to="/spam" />
             <main>
                 <EmailList folderId="inbox" />
                 {/* <SingleEmail folderId="inbox" emailId="1" /> */}
