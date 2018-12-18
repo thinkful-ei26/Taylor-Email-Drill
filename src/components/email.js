@@ -11,8 +11,10 @@ export default function Email() {
           <Router>
             <div>
             <Sidebar exact to="/:folderId" />
+            
             <main>
-                <EmailList folderId="inbox" />
+                <Route exact path="/:folderId" component=<EmailList folderId="inbox" />/>
+                
                 {/* <SingleEmail folderId="inbox" emailId="1" /> */}
             </main>
             </div>
